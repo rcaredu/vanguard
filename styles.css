@@ -167,6 +167,28 @@ h3 {
   padding: 1rem 0;
 }
 
+ul {
+  display: flex;
+  text-transform: uppercase;
+}
+
+li a {
+  text-decoration: none;
+}
+
+nav a {
+  padding: 15px;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+
+nav a:hover {
+  background-color: var(--blue);
+  border-radius: 2px;
+  color: var(--white);
+}
+
 @keyframes headerFadeInDown {
   from {
     opacity: 0;
@@ -216,7 +238,9 @@ button:hover {
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: 1rem 1rem 2rem 1rem;
-  transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
+  transition:
+    transform 0.22s ease-out,
+    box-shadow 0.22s ease-out;
 }
 
 .offer-card:hover {
