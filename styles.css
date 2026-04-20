@@ -421,20 +421,38 @@ h1::before {
   }
 }
 
-/* MEDIA QUERIES (MEDIUM) */
-
-#results {
-  grid-template-columns: 1fr 1fr;
+.offers-container {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .results-container {
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
-.results-table {
-  width: 50%;
-}
-.bar-chart {
-  width: 50%;
+
+/* MEDIA QUERIES (MEDIUM) */
+@media screen and (min-width: 800px) {
+  .offer-card {
+    margin-bottom: 0;
+  }
+  .offers-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .results-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .results-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .results-table {
+    width: 50%;
+  }
+  .bar-chart {
+    width: 50%;
+  }
 }
 
 /* MEDIA QUERIES (LARGE) */
