@@ -167,26 +167,124 @@ h3 {
   padding: 1rem 0;
 }
 
-ul {
-  display: flex;
-  text-transform: uppercase;
-}
-
 li a {
   text-decoration: none;
 }
 
+.nav-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+nav ul {
+  width: 100%;
+  flex-basis: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  max-height: 0;
+  transition: max-height 0.35s ease-out;
+}
+
 nav a {
   padding: 15px;
-  transition: color 0.3s linear;
-  -webkit-transition: color 0.3s linear;
-  -moz-transition: color 0.3s linear;
+  transition:
+    color 0.3s ease-in;
+    background-color 0.3s ease-in;
+}
+
+nav li a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--blue);
 }
 
 nav a:hover {
   background-color: var(--blue);
   border-radius: 2px;
   color: var(--white);
+}
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.menu-toggle-label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem 0 1rem 1rem;
+  user-select: none;
+  width: auto;
+  margin-top: 0;
+}
+
+.menu-toggle-label span {
+  background-color: var(--blue);
+  display: block;
+  height: 0.25rem;
+  position: relative;
+  transition: background-color 0.3s ease-out;
+  width: 2rem;
+}
+
+.menu-toggle-label span::before,
+.menu-toggle-label span::after {
+  background: var(--blue);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.menu-toggle-label span::before {
+  top: 0.75rem;
+}
+
+.menu-toggle-label span::after {
+  top: -0.75rem;
+}
+
+.menu-toggle:checked ~ ul {
+  max-height: 320px;
+}
+
+.menu-toggle:checked ~ .menu-toggle-label span {
+  background: transparent;
+}
+
+.menu-toggle:checked ~ .menu-toggle-label span::before {
+  transform: rotate(-45deg);
+}
+
+.menu-toggle:checked ~ .menu-toggle-label span::after {
+  transform: rotate(45deg);
+}
+
+.menu-toggle:checked ~ .menu-toggle-label span::before,
+.menu-toggle:checked ~ .menu-toggle-label span::after {
+  top: 0;
 }
 
 @keyframes headerFadeInDown {
@@ -433,12 +531,41 @@ h1::before {
 
 /* MEDIA QUERIES (MEDIUM) */
 @media screen and (min-width: 800px) {
+  nav {
+    flex-wrap: nowrap;
+    flex: 0 0 auto;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: auto;
+    flex-basis: auto;
+    overflow: visible;
+    text-align: left;
+  }
+
+  #primary-nav {
+    max-height: none;
+  }
+
+  nav li a {
+    display: inline-block;
+  }
+
+  .menu-toggle,
+  .menu-toggle-label {
+    display: none;
+  }
+
   .offer-card {
     margin-bottom: 0;
   }
   .offers-container {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   .results-container {
     grid-template-columns: 1fr 1fr;
@@ -456,3 +583,9 @@ h1::before {
 }
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 1024px) {
+  .offers-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 1.5rem;
+  }
+}
