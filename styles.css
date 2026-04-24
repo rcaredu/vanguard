@@ -202,9 +202,8 @@ nav ul {
 
 nav a {
   padding: 15px;
-  transition:
-    color 0.3s ease-in;
-    background-color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
 }
 
 nav li a {
@@ -598,6 +597,6 @@ h1::before {
     flex-direction: column;
   }
   form > div:last-child input[type="submit"] {
-  margin-top: auto;
+    margin-top: auto;
   }
 }
