@@ -588,4 +588,16 @@ h1::before {
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 1.5rem;
   }
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  form > div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  form > div:last-child input[type="submit"] {
+  margin-top: auto;
+  }
 }
